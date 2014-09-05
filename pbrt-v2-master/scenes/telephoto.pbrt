@@ -1,0 +1,41 @@
+Film "image"  "integer xresolution" [300] "integer yresolution" [300] "string filename" ["telephoto.exr" ] 
+
+
+# the number of samples per pixel should be a power of 2.
+# we recommend testing at 4 samples per pixel.
+# please render your final images at 512 samples per pixel
+#Sampler "lowdiscrepancy" "integer pixelsamples" [4] # test
+Sampler "lowdiscrepancy" "integer pixelsamples" [512] # final
+
+
+#LookAt 2.3 .1 -.7    .4 0 -.9  0 1 0
+Scale 5000 5000 5000
+Rotate -3 1 0 0
+Rotate 52 0 1 0
+Translate -2.3 -.05 .5
+
+
+Camera "realistic" 
+	"string specfile" "telephoto.250mm.dat" 
+	"float filmdistance" 123.74390
+	"float aperture_diameter" 40.5
+	"float filmdiag" 70 
+	"float hither" [0.001 ] 
+	"float yon" [1e+30 ] 
+	"float shutteropen" [0 ] 
+	"float shutterclose" [0 ]
+
+#Camera "perspective" "float fov" [38]
+
+WorldBegin
+
+AttributeBegin
+AreaLightSource "area" "color L" [280 280 280] "integer nsamples" [4]
+Translate 0 9.9 0
+Rotate 90 1 0 0
+Shape "disk" "float radius" [8]
+AttributeEnd
+
+Include "scene.pbrt"
+
+WorldEnd

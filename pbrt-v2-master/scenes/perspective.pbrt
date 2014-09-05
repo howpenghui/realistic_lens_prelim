@@ -1,0 +1,35 @@
+Film "image"  "integer xresolution" [300] "integer yresolution" [300] "string filename" ["perspective.exr" ] 
+
+
+# the number of samples per pixel should be a power of 2.
+# we recommend testing at 4 samples per pixel.
+# please render your final images at 512 samples per pixel
+# Sampler "lowdiscrepancy" "integer pixelsamples" [4] # test
+Sampler "lowdiscrepancy" "integer pixelsamples" [512] # final
+
+#LookAt 2.3 .1 -.7    .4 0 -.9  0 1 0
+Scale 5000 5000 5000
+Rotate -3 1 0 0
+Rotate 52 0 1 0
+Translate -2.3 -.05 .5
+
+
+Camera "perspective" 
+    "float fov" [45.000000 ] 
+    "float shutteropen" [0.000000 ] 
+    "float shutterclose" [0.000000 ] 
+    "float screenwindow" [-1.000000 1.000000 -1.000000 1.000000 ] 
+    "float frameaspectratio" [1.000000 ] 
+
+WorldBegin
+
+AttributeBegin
+AreaLightSource "area" "color L" [280 280 280] "integer nsamples" [4]
+Translate 0 9.9 0
+Rotate 90 1 0 0
+Shape "disk" "float radius" [8]
+AttributeEnd
+
+Include "scene.pbrt"
+
+WorldEnd
