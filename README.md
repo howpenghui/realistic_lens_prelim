@@ -7,5 +7,4 @@ Simulating Realistic Camera Lens
 * Telephoto
 * Double Gauss
 
-![image](fisheye_rays.png =250x)
-
+<img src="fisheye_lens.png" width=100px>
