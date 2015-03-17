@@ -6,3 +6,6 @@ Simulating Realistic Camera Lens
 * Fish-eye
 * Telephoto
 * Double Gauss
+
+![alt text](fisheye_rays.png)
+
